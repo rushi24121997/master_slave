@@ -31,16 +31,6 @@ ESP8266WebServer server(80); //Server on port 80
 void handleRoot() {
   server.send(200, "text/plain", "Hello from Rushikesh");
 }
-/*void dro() {
-  server.send(200, "text/plain", "Door Opened" );
-  Serial.println("Door Opened");
-  digitalWrite(D2, HIGH);               
-}
-void drc() {
-  server.send(200, "text/plain", "Door Closed" );
-  Serial.println("Door Closed");
-  digitalWrite(D2, LOW);               
-}*/
 void ledon(){
    server.send(200, "text/plain", "LED is ON" );
   digitalWrite(D2,HIGH);
@@ -51,10 +41,6 @@ void ledoff() {
   digitalWrite(D2,LOW);
    Serial.println("LED is OFF");
 }
-
-
-
-
 //===============================================================
 //                  SETUP
 //===============================================================
@@ -73,8 +59,7 @@ void setup(){
   Serial.print("HotSpt IP:");
   Serial.println(myIP);
    pinMode(D2, OUTPUT);
-
-  
+   
    server.on("/", handleRoot); //Which routine to handle at root location
   
    server.on("/ledon", ledon);
